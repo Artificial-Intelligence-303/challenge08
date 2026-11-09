@@ -1,0 +1,38 @@
+[project]
+name = "challenge-08-context-budget"
+version = "1.0.0"
+description = "CMPSC 303 Challenge 8: an experiment with an agent's memory."
+requires-python = ">=3.11"
+dependencies = [
+    "gatorgrade",
+    "pytest",
+    "pytest-timeout",
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+timeout = 60
+
+# Style is checked against the Google Python Style Guide:
+# https://google.github.io/styleguide/pyguide.html
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors, includes line length
+    "W",   # pycodestyle warnings, includes trailing whitespace
+    "F",   # pyflakes, unused imports and names
+    "I",   # import ordering
+    "D",   # docstring conventions
+    "N",   # naming conventions
+]
+ignore = [
+    "D203",  # conflicts with D211, which ruff prefers
+    "D213",  # conflicts with D212, which matches the Google convention
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

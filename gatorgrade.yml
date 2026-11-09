@@ -1,0 +1,62 @@
+# Automated checks for Challenge 8. Run them yourself with:
+#
+#     uv run gatorgrade --config gatorgrade.yml
+#
+# These are the same checks that run on GitHub when you push. Results are
+# preliminary: the final grade is determined by the instructor.
+
+- description: "[RUN] The provided experiment works"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_lab.py
+
+- description: "[RUN] Every row came from the model"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_every_row_came_from_the_model
+
+- description: "[RUN] The in-class runs have three trials each"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_the_in_class_runs_have_three_trials_each
+
+- description: "[RUN] The other required runs have three trials each"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_the_other_required_runs_have_three_trials_each
+
+- description: "[RUN] One setting of your own has three trials"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_one_setting_of_your_own_has_three_trials
+
+- description: "[RUN] The provided code is unchanged"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_the_provided_code_is_unchanged
+
+- description: "[PREDICTION] The prediction was committed before the results"
+  check: ExecuteCommand
+  options:
+    command: uv run pytest tests/test_results.py::test_the_prediction_was_committed_before_the_results
+
+- docs/prediction.md:
+  - description: "[PREDICTION] The prediction has no TODO left"
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+
+- docs/explanation.md:
+  - description: "[EXPLANATION] The explanation has no TODO left"
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+  - description: "[EXPLANATION] The explanation meets the 300 word minimum"
+    check: CountFileWords
+    options:
+      count: 300
+      exact: false
