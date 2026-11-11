@@ -22,7 +22,7 @@ REQUIRED = [
 
 
 def rows() -> list[dict[str, str]]:
-    """Every row of the results file, or none if it does not exist."""
+    """The rows of the results file, or none if it does not exist."""
     if not RESULTS.exists():
         return []
     with RESULTS.open(newline="") as handle:
@@ -44,7 +44,7 @@ def git(*arguments: str) -> str:
     ).stdout.strip()
 
 
-def test_every_row_came_from_the_model() -> None:
+def test_each_row_came_from_the_model() -> None:
     """Rows exist, and each names the model and has a right or wrong."""
     assert rows()
     for row in rows():
@@ -52,7 +52,7 @@ def test_every_row_came_from_the_model() -> None:
         assert row["correct"] in ("True", "False")
 
 
-def test_the_in_class_runs_have_three_trials_each() -> None:
+def test_the_full_memory_runs_have_three_trials_each() -> None:
     """Full memory at 0, 100 and 2000 filler turns."""
     for setting in REQUIRED[:3]:
         assert count(setting) >= 3, setting

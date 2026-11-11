@@ -1,6 +1,6 @@
 """Provided: the experiment does what the README says, on a stand-in model.
 
-The stand-in needs no key and costs nothing: it finds the combination only
+The stand-in needs no key and costs no money. It finds the combination only
 when the fact is in the messages it is sent.
 """
 
@@ -15,8 +15,8 @@ def test_the_fact_is_planted_where_asked() -> None:
         assert turns[index]["content"] == memory_lab.FACT
 
 
-def test_full_memory_sends_every_turn() -> None:
-    """Nothing is dropped, so the stand-in finds the fact."""
+def test_full_memory_sends_all_turns() -> None:
+    """No turn is dropped, so the stand-in finds the fact."""
     assert trial(200, "start", "full", 1, stand_in)["correct"] is True
 
 

@@ -10,15 +10,15 @@
   options:
     command: uv run pytest tests/test_lab.py
 
-- description: "[RUN] Every row came from the model"
+- description: "[RUN] Each row came from the model"
   check: ExecuteCommand
   options:
-    command: uv run pytest tests/test_results.py::test_every_row_came_from_the_model
+    command: uv run pytest tests/test_results.py::test_each_row_came_from_the_model
 
-- description: "[RUN] The in-class runs have three trials each"
+- description: "[RUN] The full-memory runs have three trials each"
   check: ExecuteCommand
   options:
-    command: uv run pytest tests/test_results.py::test_the_in_class_runs_have_three_trials_each
+    command: uv run pytest tests/test_results.py::test_the_full_memory_runs_have_three_trials_each
 
 - description: "[RUN] The other required runs have three trials each"
   check: ExecuteCommand

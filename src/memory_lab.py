@@ -8,7 +8,7 @@ strategy, and asks the model for the fact. The answer is right if it holds
 the fact's combination.
 
 Memory strategies:
-    full     every turn is sent
+    full     all turns are sent
     window   only the last WINDOW turns are sent
     summary  turns before the last WINDOW are replaced by a summary that
              the model writes first, in at most SUMMARY_WORDS words
@@ -53,7 +53,7 @@ TASKS = [
     "save money on groceries",
 ]
 TIPS = [
-    "Do a little every day rather than a lot at once.",
+    "Do a little each day rather than a lot at once.",
     "Write down the steps first, then do them in order.",
     "Ask someone who has done it before.",
     "Start with the smallest version that works.",
@@ -66,7 +66,7 @@ THINGS = ["bike lock", "gym locker", "luggage lock", "storage unit", "shed"]
 def filler(count: int, seed: int) -> list[Message]:
     """Return `count` filler turns, a user line and a reply each.
 
-    Every seventh turn is a different combination for something else, so
+    One turn in seven is a different combination for something else, so
     the planted fact has look-alikes around it.
     """
     rng = random.Random(seed)
