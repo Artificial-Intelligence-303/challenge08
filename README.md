@@ -50,8 +50,22 @@ Each row of `results/results.csv` records the setting, the number of tokens
 sent (estimated as one per four characters), the summary and whether it
 kept the combination, whether the answer was right, and the answer itself.
 The model thinks before it writes, and if it uses up its room thinking, the
-summary or the answer says so. The
-program also prints a line for each trial as it finishes.
+summary or the answer says so. The program also prints a line for each trial
+as it finishes.
+
+### The flow for one trial
+
+```text
+run.py main
+ └─ for seed in 1, 2, 3:
+     └─ trial
+         ├─ conversation ── filler      fact + count turns, built from TASKS, TIPS, THINGS
+         ├─ remembered                  full: all turns   window: last 20
+         │   └─ summarize ── zen        summary only: a first call, 60 words
+         ├─ + QUESTION
+         ├─ zen                         the call that is graded
+         └─ ANSWER                      right or wrong → one row in results.csv
+```
 
 ## What to do
 
