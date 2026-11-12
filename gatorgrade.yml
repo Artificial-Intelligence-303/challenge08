@@ -55,8 +55,3 @@
       fragment: "TODO"
       count: 0
       exact: true
-  - description: "[EXPLANATION] The explanation meets the 300 word minimum"
-    check: CountFileWords
-    options:
-      count: 300
-      exact: false

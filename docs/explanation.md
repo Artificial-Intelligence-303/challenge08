@@ -2,39 +2,33 @@
 
 Name: TODO
 
-Answer each question from your own `results/results.csv`, citing your
-numbers.
+Answer each question in a sentence or two, using the numbers in your own
+`results/results.csv`.
 
-## 1. Length and position, with full memory
+## 1. Full memory
 
-Did a longer conversation, or the fact sitting in the middle, change how
-often the model answered correctly? Compare your result with the "lost in
-the middle" finding, and say what about this experiment could make the
-effect larger or smaller.
+Did a longer conversation, or the fact in the middle, change how often the
+model answered correctly?
 
 TODO
 
-## 2. The window and the summary
+## 2. The window
 
-What did the window lose, and why? In the summary runs, use the
-`summary` and `summary_kept_fact` columns: what did the summary keep, when
-did it keep the combination, and when the model answered correctly, did the
-answer come from the summary?
+What did the model answer in the window runs, and why?
 
 TODO
 
-## 3. Your own setting
+## 3. The summary
 
-What you changed, what you predicted, and what happened.
+Read the `summary` column. Did the summary keep the combination, and did
+the right answers come from it? How do the `tokens_sent` for summary and
+full memory compare at 2000 filler turns?
 
 TODO
 
-## 4. The cost of remembering
+## 4. Your own setting
 
-Compare `tokens_sent` for full memory and for the summary at 2000 filler
-turns. What does that difference mean for an agent that runs for a long
-time, and what would you save with a `remember` tool instead of leaving it
-in the conversation?
+What did you change, what did you expect, and what happened?
 
 TODO
 
