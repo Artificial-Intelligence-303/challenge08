@@ -193,6 +193,7 @@ def zen(messages: list[Message]) -> str:
         headers={
             "Authorization": f"Bearer {api_key()}",
             "Content-Type": "application/json",
+            "User-Agent": "cmpsc303-challenge8",
         },
     )
     try:
