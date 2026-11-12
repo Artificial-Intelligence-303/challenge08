@@ -178,13 +178,17 @@ def api_key() -> str:
 
 
 def zen(messages: list[Message]) -> str:
-    """Send messages to the model on OpenCode Zen and return its reply."""
+    """Send messages to the model on OpenCode Zen and return its reply.
+
+    The model thinks before it replies, and its thinking counts against
+    max_tokens. If it uses them all before replying, the reply says so.
+    """
     body = json.dumps(
         {
             "model": MODEL,
             "messages": messages,
             "temperature": TEMPERATURE,
-            "max_tokens": 2000,
+            "max_tokens": 8000,
         }
     ).encode()
     request = urllib.request.Request(
@@ -202,7 +206,11 @@ def zen(messages: list[Message]) -> str:
     except urllib.error.HTTPError as problem:
         detail = problem.read().decode(errors="replace")[:300]
         raise SystemExit(f"Zen returned {problem.code}: {detail}") from None
-    return reply["choices"][0]["message"].get("content") or ""
+    choice = reply["choices"][0]
+    content = choice["message"].get("content") or ""
+    if not content.strip() and choice.get("finish_reason") == "length":
+        return "No answer: the model used all of its tokens thinking."
+    return content
 
 
 def stand_in(messages: list[Message]) -> str:
