@@ -38,4 +38,5 @@ def test_a_summary_records_whether_it_kept_the_fact() -> None:
     """The row says whether the summary held the combination."""
     row = trial(200, "middle", "summary", 1, stand_in)
     assert row["summary_kept_fact"] is False
+    assert row["summary"]
     assert row["correct"] is False

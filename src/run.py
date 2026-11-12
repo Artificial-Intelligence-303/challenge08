@@ -26,6 +26,7 @@ FIELDS = [
     "seed",
     "tokens_sent",
     "summary_kept_fact",
+    "summary",
     "correct",
     "answer",
 ]

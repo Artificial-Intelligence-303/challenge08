@@ -47,8 +47,10 @@ the default. Each trial uses different filler, so three trials tell you
 whether a result holds up or happened once by chance.
 
 Each row of `results/results.csv` records the setting, the number of tokens
-sent (estimated as one per four characters), whether the summary kept the
-combination, whether the answer was right, and the answer itself. The
+sent (estimated as one per four characters), the summary and whether it
+kept the combination, whether the answer was right, and the answer itself.
+The model thinks before it writes, and if it uses up its room thinking, the
+summary or the answer says so. The
 program also prints a line for each trial as it finishes.
 
 ## What to do

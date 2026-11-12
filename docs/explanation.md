@@ -17,8 +17,9 @@ TODO
 ## 2. The window and the summary
 
 What did the window lose, and why? In the summary runs, use the
-`summary_kept_fact` column: when did the summary keep the combination, and
-when the model answered correctly, did the answer come from the summary?
+`summary` and `summary_kept_fact` columns: what did the summary keep, when
+did it keep the combination, and when the model answered correctly, did the
+answer come from the summary?
 
 TODO
 

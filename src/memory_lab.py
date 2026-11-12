@@ -26,6 +26,7 @@ from pathlib import Path
 URL = "https://opencode.ai/inference/openai/v1/chat/completions"
 MODEL = "glm-5.3-flash"
 TEMPERATURE = 0.2
+REASONING = "low"
 WINDOW = 20
 SUMMARY_WORDS = 60
 ENV_FILE = Path(__file__).parent.parent / ".env"
@@ -157,6 +158,7 @@ def trial(
         "seed": seed,
         "tokens_sent": tokens(messages),
         "summary_kept_fact": bool(ANSWER.search(summary)) if summary else "",
+        "summary": " ".join(summary.split()),
         "correct": bool(ANSWER.search(answer)),
         "answer": " ".join(answer.split())[:80],
     }
@@ -188,6 +190,7 @@ def zen(messages: list[Message]) -> str:
             "model": MODEL,
             "messages": messages,
             "temperature": TEMPERATURE,
+            "reasoning_effort": REASONING,
             "max_tokens": 8000,
         }
     ).encode()
