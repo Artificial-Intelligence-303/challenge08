@@ -44,7 +44,11 @@ combination has look-alikes around it.
 
 `--trials` is how many times to run the setting, from 1 to 5, with 3 as
 the default. Each trial uses different filler, so three trials tell you
-whether a result holds up or happened once by chance.
+whether a result holds up or happened once by chance. The filler is chosen
+at random from a starting number called a seed: trial 1 uses seed 1, trial
+2 uses seed 2, and so on. The same seed produces the same filler on any
+laptop, so your classmates send the same conversations you do, and a
+difference between your results comes from the model itself.
 
 Each row of `results/results.csv` records the setting, the number of tokens
 sent (estimated as one per four characters), the summary and whether it
