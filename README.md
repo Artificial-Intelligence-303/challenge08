@@ -132,13 +132,20 @@ This challenge is worth **3 points**, split evenly. There is no verbal check.
 ## How this assignment was built
 
 I chose the experiment and its settings. Claude wrote the runner, the tests
-and the checks, and verified them against a stand-in model that needs no
-key. I reviewed the result and ran the experiment on the real model before
-release.
+and the checks, and tested them against a stand-in model that needs no key.
+I ran the experiment on the real model before release, and Claude fixed the
+problems that run turned up.
 
 ## AI use on this challenge
 
-Full policy: **[AI in this course](https://areweagentsyet.com/ai/)**. The
-runs are the assignment. The prediction and the explanation are your own
-reasoning about your own numbers; disclose any AI use in
+Full policy: **[AI in this course](https://areweagentsyet.com/ai/)**. This
+challenge runs an AI model, and that use needs no disclosure. The prediction
+and the explanation are your own reasoning about your own numbers, so if you
+use an AI tool for either one, please disclose it at the end of
 `docs/explanation.md`.
+
+> ### The skill this time: if an answer depends on something said long ago, check that the tool still has it
+>
+> A model answers from the messages it is sent. When an earlier part of a
+> conversation has been cut or summarized, the model can still answer
+> confidently from what is left.
