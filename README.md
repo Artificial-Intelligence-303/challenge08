@@ -57,7 +57,9 @@ The model thinks before it writes, and if it uses up its room thinking, the
 summary or the answer says so. The program also prints a line for each trial
 as it finishes.
 
-### The flow for one trial
+### The flow of one run
+
+A run of one setting makes three trials, one for each seed.
 
 ```text
 run.py main
